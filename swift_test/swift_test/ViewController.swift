@@ -16,31 +16,37 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "swift"
+       
+        var a1 : Bool? = nil
         
-        self.netWork()
-    
-    }
+        a1 = anyCommenElements(lsh: ["1"],rsh: ["123"])
 
-    
-    func netWork() {
+        print(a1?.description ?? "-----")
         
-        Alamofire.request("https://httpbin.org/get").responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
-            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
-            
-        }
         
     }
     
+    
+    
+    func anyCommenElements<T:Sequence , U : Sequence> (lsh : T, rsh: U) -> Bool where T.Iterator.Element: Equatable , T.Iterator.Element == U.Iterator.Element  {
+        
+        for lhsItem in lsh {
+            
+            for rhsItem in rsh {
+                
+                if lhsItem == rhsItem {
+                    
+                    return true
+                }
+                
+            }
+        }
+        return false
+        
+    }
+    
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

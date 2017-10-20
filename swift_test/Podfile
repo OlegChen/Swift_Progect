@@ -7,7 +7,8 @@ platform :ios, '9.0'
 target 'swift_test' do
   
 pod 'Alamofire', '~> 4.4'
-
+pod 'SwiftyJSON'
+pod 'SnapKit', '~> 3.2.0'
 
   target 'swift_testTests' do
     inherit! :search_paths

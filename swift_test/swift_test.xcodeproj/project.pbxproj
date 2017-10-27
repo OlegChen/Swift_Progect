@@ -10,6 +10,8 @@
 		011EF8B80AE796E2D5AA5C93 /* Pods_swift_testUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9079B19327DA6199CF7A82F1 /* Pods_swift_testUITests.framework */; };
 		18588CD61F98848100FB3101 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18588CD51F98848100FB3101 /* NetworkService.swift */; };
 		18588CD81F9884A200FB3101 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18588CD71F9884A200FB3101 /* API.swift */; };
+		18588CDD1FA080C300FB3101 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18588CDC1FA080C300FB3101 /* MeVC.swift */; };
+		18588CDF1FA0813400FB3101 /* MeBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18588CDE1FA0813400FB3101 /* MeBaseCell.swift */; };
 		186E87161F3317CE0001D80A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E87151F3317CE0001D80A /* AppDelegate.swift */; };
 		186E87181F3317CE0001D80A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186E87171F3317CE0001D80A /* ViewController.swift */; };
 		186E871B1F3317CE0001D80A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186E87191F3317CE0001D80A /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		04E3A5D4CE822D08862C8A2B /* Pods-swift_test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swift_test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swift_test/Pods-swift_test.debug.xcconfig"; sourceTree = "<group>"; };
 		18588CD51F98848100FB3101 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		18588CD71F9884A200FB3101 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		18588CDC1FA080C300FB3101 /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		18588CDE1FA0813400FB3101 /* MeBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeBaseCell.swift; sourceTree = "<group>"; };
 		186E87121F3317CE0001D80A /* swift_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swift_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186E87151F3317CE0001D80A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		186E87171F3317CE0001D80A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,31 @@
 				3776DCDD0405E6B88BD1B73B /* Pods-swift_testUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		18588CD91FA0655A00FB3101 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				18588CDA1FA0655A00FB3101 /* Model */,
+				18588CDB1FA0655A00FB3101 /* View */,
+				18588CDC1FA080C300FB3101 /* MeVC.swift */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		18588CDA1FA0655A00FB3101 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18588CDB1FA0655A00FB3101 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18588CDE1FA0813400FB3101 /* MeBaseCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		186E87091F3317CE0001D80A = {
@@ -179,6 +208,7 @@
 		186E87481F3993820001D80A /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				18588CD91FA0655A00FB3101 /* Me */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -490,9 +520,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18588CDF1FA0813400FB3101 /* MeBaseCell.swift in Sources */,
 				18588CD61F98848100FB3101 /* NetworkService.swift in Sources */,
 				186E87181F3317CE0001D80A /* ViewController.swift in Sources */,
 				186E87161F3317CE0001D80A /* AppDelegate.swift in Sources */,
+				18588CDD1FA080C300FB3101 /* MeVC.swift in Sources */,
 				186E87471F398C6A0001D80A /* Network.swift in Sources */,
 				18588CD81F9884A200FB3101 /* API.swift in Sources */,
 				186E874C1F3993FB0001D80A /* PCH.swift in Sources */,

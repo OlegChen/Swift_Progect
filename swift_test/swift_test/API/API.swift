@@ -10,5 +10,16 @@ import Foundation
 
 
 
+//public struct API {
+
+    private let baseURL = "https://www.designernews.co"
+
+
+    
+    public let LoginUrlString = baseURL + ""
+
+
+
+//}
 
 //private static let baseURL = "https://www.designernews.co"

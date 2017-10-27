@@ -17,33 +17,37 @@ class ViewController: UIViewController {
 
         self.title = "swift"
        
-        var a1 : Bool? = nil
-        
-        a1 = anyCommenElements(lsh: ["1"],rsh: ["123"])
-
-        print(a1?.description ?? "-----")
+//        var a1 : Bool? = nil
+//        a1 = anyCommenElements(lsh: ["1"],rsh: ["123"])
+//        print(a1?.description ?? "-----")
         
         
-    }
-    
-    
-    
-    func anyCommenElements<T:Sequence , U : Sequence> (lsh : T, rsh: U) -> Bool where T.Iterator.Element: Equatable , T.Iterator.Element == U.Iterator.Element  {
-        
-        for lhsItem in lsh {
+        NetworkService.loginWithEmail(email: "", password: "") { (responseObject) in
             
-            for rhsItem in rsh {
-                
-                if lhsItem == rhsItem {
-                    
-                    return true
-                }
-                
-            }
+            
+            
         }
-        return false
+        
         
     }
+    
+//    
+//    
+//    func anyCommenElements<T:Sequence , U : Sequence> (lsh : T, rsh: U) -> Bool where T.Iterator.Element: Equatable , T.Iterator.Element == U.Iterator.Element  {
+//        
+//        for lhsItem in lsh {
+//            
+//            for rhsItem in rsh {
+//                
+//                if lhsItem == rhsItem {
+//                    
+//                    return true
+//                }
+//            }
+//        }
+//        return false
+//        
+//    }
     
     
 

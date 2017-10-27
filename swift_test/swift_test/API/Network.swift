@@ -11,9 +11,6 @@ import Foundation
 import UIKit
 import Alamofire
 
-
-
-import Alamofire
 import SwiftyJSON
 
 private let NetworkRequestShareInstance = NetworkRequest()
@@ -38,6 +35,10 @@ extension NetworkRequest {
         }) { (Error) in
             
             failture(Error as NSError)
+            
+            print(Error);
+            //错误处理
+            
         }
         
         

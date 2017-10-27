@@ -54,7 +54,7 @@
         <!--Root View Controller-->
         <scene sceneID="cgR-Te-yrZ">
             <objects>
-                <tableViewController id="Koz-Ur-7aZ" sceneMemberID="viewController">
+                <tableViewController id="Koz-Ur-7aZ" customClass="MeVC" customModule="swift_test" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ww3-eX-Zjm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,6 +75,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="Idv-J4-e5p"/>
+                    <connections>
+                        <outlet property="tableview" destination="ww3-eX-Zjm" id="WuS-WW-8e3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7Z-np-1T4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

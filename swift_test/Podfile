@@ -10,6 +10,8 @@ pod 'Alamofire', '~> 4.4'
 pod 'SwiftyJSON'
 pod 'SnapKit', '~> 3.2.0'
 
+pod "ESPullToRefresh"
+
   target 'swift_testTests' do
     inherit! :search_paths
     # Pods for testing

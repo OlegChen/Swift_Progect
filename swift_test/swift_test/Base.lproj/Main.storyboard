@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="haX-AQ-Nis">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="haX-AQ-Nis">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,12 +35,12 @@
         <!--选择-->
         <scene sceneID="P1D-5f-seL">
             <objects>
-                <navigationController id="1VA-wO-wgB" sceneMemberID="viewController">
+                <navigationController id="1VA-wO-wgB" customClass="BaseNavigationController" customModule="swift_test" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="选择" image="购物车-" selectedImage="购物车-红色" id="GQR-1Z-kAq">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jHa-bh-9jd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -51,54 +51,41 @@
             </objects>
             <point key="canvasLocation" x="-724" y="139"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="cgR-Te-yrZ">
-            <objects>
-                <tableViewController id="Koz-Ur-7aZ" customClass="MeVC" customModule="swift_test" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ww3-eX-Zjm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="EVZ-86-9nL">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EVZ-86-9nL" id="cGb-Nx-bBo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Koz-Ur-7aZ" id="Las-A6-msb"/>
-                            <outlet property="delegate" destination="Koz-Ur-7aZ" id="ytR-rf-oG0"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Idv-J4-e5p"/>
-                    <connections>
-                        <outlet property="tableview" destination="ww3-eX-Zjm" id="WuS-WW-8e3"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f7Z-np-1T4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="162" y="856"/>
-        </scene>
         <!--Item-->
         <scene sceneID="As1-tT-qV1">
             <objects>
-                <navigationController id="iN3-0G-5iq" sceneMemberID="viewController">
+                <navigationController id="iN3-0G-5iq" customClass="BaseNavigationController" customModule="swift_test" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="wxB-IV-hAz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wMo-KG-dYe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Koz-Ur-7aZ" kind="relationship" relationship="rootViewController" id="NQ3-Ja-wc3"/>
+                        <segue destination="fev-ep-pQh" kind="relationship" relationship="rootViewController" id="fxn-rz-Bw7"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bni-Cr-U6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-756" y="856"/>
+        </scene>
+        <!--MeVC-->
+        <scene sceneID="9K1-s0-ytb">
+            <objects>
+                <viewController id="fev-ep-pQh" customClass="MeVC" customModule="swift_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Knm-o2-08C"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ucv-O4-XAh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bCT-aJ-Mr5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nIE-gl-TFX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dsP-sr-kBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="194" y="850"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">

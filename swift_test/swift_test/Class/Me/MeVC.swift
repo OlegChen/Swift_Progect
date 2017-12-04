@@ -10,34 +10,61 @@ import Foundation
 
 import UIKit
 
-class MeVC: UITableViewController {
+class MeVC: UIViewController,UITableViewDelegate,UITableViewDataSource,BasePullTableViewDelegate {
     
     
-    @IBOutlet var tableview: UITableView!
     
+    var tableview: BasePullTableView!
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-    self.tableview.register(MeBaseCell.self, forCellReuseIdentifier: "cell")
+//        let view1 = UIView.init()
+//        self.view.addSubview(view1)
+//        view1.backgroundColor = UIColor.blue
+//        view1.frame = CGRect.init(origin: .init(x: 0, y: 0), size: .init(width: 100, height: 100))
+        
+        
+        self.navigationController?.navigationBar.backgroundColor = UIColor.green
+        
+        self.view.backgroundColor = UIColor.white
+        
+        self.edgesForExtendedLayout = .bottom
+        
+        self.tableview = BasePullTableView.init(frame: self.view.bounds, style: UITableViewStyle.plain)
+        self.tableview.delegate = self
+        self.tableview.dataSource = self
+        self.tableview.pullDelegate = self
+        self.view.addSubview(self.tableview)
+        self.tableview.es.removeRefreshFooter()
+        
+        self.tableview.register(MeBaseCell.self, forCellReuseIdentifier: "cell")
+        
+        
         
     }
     
+    //MARK: refresh
+    func PullToRefresh() {
+        
+        print(" ** 刷新 ** ")
+    }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
         
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 5
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
        let cell = tableview.dequeueReusableCell(withIdentifier: "cell")
         
@@ -46,7 +73,7 @@ class MeVC: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
         

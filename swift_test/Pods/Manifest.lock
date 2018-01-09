@@ -1,21 +1,21 @@
 PODS:
-  - Alamofire (4.5.1)
+  - Alamofire (4.6.0)
   - ESPullToRefresh (2.7)
+  - HandyJSON (1.8.0)
   - SnapKit (3.2.0)
-  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - ESPullToRefresh
+  - HandyJSON (~> 1.8.0)
   - SnapKit (~> 3.2.0)
-  - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   ESPullToRefresh: 119e2710b82b75536aab2bbe4883ba119fca35c8
+  HandyJSON: edaaa3278bf4c4c96d6f7382b80d6b91c88d3bf5
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 865e011a3776252faab4e51df49ebdb0db20ce5a
+PODFILE CHECKSUM: a29463a42cc3e4c30fd50bf3507f3372cf73a359
 
 COCOAPODS: 1.2.0

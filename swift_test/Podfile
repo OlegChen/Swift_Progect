@@ -7,8 +7,10 @@ platform :ios, '9.0'
 target 'swift_test' do
   
 pod 'Alamofire', '~> 4.4'
-pod 'SwiftyJSON'
+
 pod 'SnapKit', '~> 3.2.0'
+pod 'HandyJSON', '~> 1.8.0'
+
 
 pod "ESPullToRefresh"
 

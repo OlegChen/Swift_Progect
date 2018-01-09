@@ -11,7 +11,6 @@ import Foundation
 import UIKit
 import Alamofire
 
-import SwiftyJSON
 
 private let NetworkRequestShareInstance = NetworkRequest()
 
@@ -83,8 +82,8 @@ extension NetworkRequest {
                     //                    if let value = response.result.value as? [String: AnyObject] {
                     success(value as! [String : AnyObject])
                     //                    }
-                    let json = JSON(value)
-                    PrintLog(message: json)
+//                    let json = JSON(value)
+//                    PrintLog(message: json)
                     
                 case .failure(let error):
                     failture(error)
@@ -97,20 +96,53 @@ extension NetworkRequest {
     //MARK: - POST 请求
     func PostRequest(urlString : String, params : [String : Any], success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()) {
         
-        Alamofire.request(urlString, method: HTTPMethod.post, parameters: params).responseJSON { (response) in
-            switch response.result{
-            case .success:
-                if let value = response.result.value as? [String: AnyObject] {
-                    success(value)
-                    let json = JSON(value)
-                    PrintLog(message: json)
-                }
-            case .failure(let error):
-                failture(error)
-                PrintLog(message: "error:\(error)")
-            }
+        let headers: HTTPHeaders =  ["Content-type":"application/json;charset=utf-8",
+                                     "Accept":"text/html",//"application/json",
+                                     "systemtype":"ios",
+                                     "channel":"00",
+                                     "Authorization":""]
+        
+        
+//        Alamofire.request(urlString, method : HTTPMethod.post , parameters : params, encoding: JSONEncoding.default ,  headers: headers).responseJSON { response in
+//
+//            switch response.result{
+//            case .success:
+//                if let value = response.result.value as? [String: AnyObject] {
+//                    success(value)
+//                    //                    let json = JSON(value)
+//                    //                    PrintLog(message: json)
+//                }
+//            case .failure(let error):
+//                failture(error)
+//                PrintLog(message: "error:\(error)")
+//            }
+//
+//        }
+        
+        
+        
+        Alamofire.request(urlString, method : HTTPMethod.post , parameters : params, encoding: JSONEncoding.default ,  headers: headers).responseData { (data) in
+            
+            let data1 = try? JSONSerialization.data(withJSONObject: data, options: [])
+            let jsonString = String(data: data1!, encoding: String.Encoding.utf8)
             
         }
+        
+        
+//        Alamofire.request(urlString, method: HTTPMethod.post, parameters: params).responseJSON { (response) in
+//            switch response.result{
+//            case .success:
+//                if let value = response.result.value as? [String: AnyObject] {
+//                    success(value)
+////                    let json = JSON(value)
+////                    PrintLog(message: json)
+//                }
+//            case .failure(let error):
+//                failture(error)
+//                PrintLog(message: "error:\(error)")
+//            }
+
+//        }
     }
     
     //MARK: - 照片上传
@@ -148,8 +180,8 @@ extension NetworkRequest {
                     upload.responseJSON { response in
                         if let value = response.result.value as? [String: AnyObject]{
                             success(value)
-                            let json = JSON(value)
-                            PrintLog(message: json)
+//                            let json = JSON(value)
+//                            PrintLog(message: json)
                         }
                     }
                 case .failure(let encodingError):
@@ -159,3 +191,5 @@ extension NetworkRequest {
         }
         )
     }
+
+

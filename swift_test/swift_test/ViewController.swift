@@ -40,22 +40,22 @@ class ViewController: UIViewController {
 //
 //        }
         
-        let para : Dictionary = [String: String]()
+        let para : Dictionary = [        "versionNum" : "1.0.0",
+                                         "origin" : "002001"
+    ]
         
 
-        //"versionNum" : "1.0.0",
-        //"origin" : "002001"
     
-        NetworkService.networkPostrequest(parameters: para, requestApi: "http://int.dpool.sina.com.cn/iplookup/iplookup.php", modelClass: "baseModel", response: { (response) in
-
-
-        }) { (Error) in
-
-
-        }
+//        NetworkService.networkPostrequest(parameters: para, requestApi: "http://int.dpool.sina.com.cn/iplookup/iplookup.php", modelClass: "baseModel", response: { (response) in
+//
+//
+//        }) { (Error) in
+//
+//
+//        }
         
         
-//        NetworkRequest.sharedInstance.NetworkGetRequest(URL: "http://int.dpool.sina.com.cn/iplookup/iplookup.php", params: para as [String : AnyObject], success: { (response) in
+//        NetworkRequest.sharedInstance.NetworkGetRequest(URL: "http://www.baidu.com", params: para as [String : AnyObject], success: { (response) in
 //
 //
 //        }) { (error) in
@@ -64,17 +64,22 @@ class ViewController: UIViewController {
 //        }
         
         
-    }
     
-//    NetworkService.networkPostrequest(parameters: para, requestApi: "http://172.168.1.234:1106/teacher/loginTeacherByMobile", modelClass: "baseModel", response: { (response) in
-//
-//
-//
-//    }, failture: { (error) in
-//
-//
-//
-//    })
+
+    NetworkService.networkPostrequest(parameters: para, requestApi: "http://172.168.1.234:1106/teacher/loginTeacherByMobile", modelClass: "ceshiModel", response: { (response) in
+
+        let ceshi :ceshiModel = response as! ceshiModel
+        
+        print(ceshi)
+        
+
+    }, failture: { (error) in
+
+
+
+    })
+        
+    }
     
     
 //    

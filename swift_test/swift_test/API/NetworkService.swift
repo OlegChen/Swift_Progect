@@ -12,19 +12,18 @@ import HandyJSON
 
 public struct NetworkService {
 
-    public static func networkPostrequest(parameters: [String : String], requestApi: String, modelClass :String, response: @escaping (_ responseObject : [String : AnyObject]) -> (), failture : @escaping (_ error : NSError)->())  {
+    public static func networkPostrequest(parameters: [String : String], requestApi: String, modelClass :String, response: @escaping (_ responseObject : AnyObject) -> (), failture : @escaping (_ error : NSError)->())  {
         
-            NetworkRequest.sharedInstance.NetworkPostRequest(URL: LoginUrlString, params:parameters as [String : AnyObject] , success: { (responseObject) in
+            NetworkRequest.sharedInstance.NetworkPostRequest(URL: requestApi, params:parameters as [String : AnyObject] , success: { (responseObject) in
                 
                 //转模
 //                var Model = swiftClassFromString(className:modelClass)
                 
-//                var model = baseModel.init()
+                let model = (swiftClassFromString(className: modelClass) as? HandyJSON.Type )?.deserialize(from: responseObject)
                 
-                
-                if ((swiftClassFromString(className: modelClass) as? baseModel.Type )?.deserialize(from: responseObject)) != nil {
+                if ( model != nil) {
 
-                    response(responseObject)
+                    response(model! as AnyObject)
 
                 }
                 

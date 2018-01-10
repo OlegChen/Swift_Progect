@@ -12,6 +12,7 @@ import UIKit
 import Alamofire
 
 
+
 private let NetworkRequestShareInstance = NetworkRequest()
 
 class NetworkRequest {
@@ -96,37 +97,41 @@ extension NetworkRequest {
     //MARK: - POST 请求
     func PostRequest(urlString : String, params : [String : Any], success : @escaping (_ response : [String : AnyObject])->(), failture : @escaping (_ error : Error)->()) {
         
-        let headers: HTTPHeaders =  ["Content-type":"application/json;charset=utf-8",
-                                     "Accept":"text/html",//"application/json",
-                                     "systemtype":"ios",
-                                     "channel":"00",
-                                     "Authorization":""]
+        let headers: HTTPHeaders =  [    "Authorization": "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==",
+                                         "Accept": "application/json"]
         
         
-//        Alamofire.request(urlString, method : HTTPMethod.post , parameters : params, encoding: JSONEncoding.default ,  headers: headers).responseJSON { response in
-//
-//            switch response.result{
-//            case .success:
-//                if let value = response.result.value as? [String: AnyObject] {
-//                    success(value)
-//                    //                    let json = JSON(value)
-//                    //                    PrintLog(message: json)
-//                }
-//            case .failure(let error):
-//                failture(error)
-//                PrintLog(message: "error:\(error)")
-//            }
-//
-//        }
-        
-        
-        
-        Alamofire.request(urlString, method : HTTPMethod.post , parameters : params, encoding: JSONEncoding.default ,  headers: headers).responseData { (data) in
-            
-            let data1 = try? JSONSerialization.data(withJSONObject: data, options: [])
-            let jsonString = String(data: data1!, encoding: String.Encoding.utf8)
-            
+        Alamofire.request(urlString, method : HTTPMethod.post , parameters : params, encoding: JSONEncoding.default ,  headers: headers).responseJSON { response in
+
+            switch response.result{
+            case .success:
+                if let value = response.result.value as? [String: AnyObject] {
+                    success(value)
+                    //                    let json = JSON(value)
+                    //                    PrintLog(message: json)
+                }
+            case .failure(let error):
+                failture(error)
+                PrintLog(message: "error:\(error)")
+            }
+
         }
+        
+        
+        
+//        Alamofire.request(urlString, method : HTTPMethod.post , parameters : params, encoding: JSONEncoding.default ,  headers: headers).responseString { (response) in
+//            
+//            print(response)
+//            
+//            if let json = response.result.value {
+//                print("JSON: \(json)")
+//            }
+//            
+////            let dic = convertToDictionary(text: response.result);
+//            
+//
+//            
+//        }
         
         
 //        Alamofire.request(urlString, method: HTTPMethod.post, parameters: params).responseJSON { (response) in
@@ -191,5 +196,20 @@ extension NetworkRequest {
         }
         )
     }
+
+
+
+
+
+func convertToDictionary(text: String) -> [String: Any]? {
+    if let data = text.data(using: .utf8) {
+        do {
+            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    return nil
+}
 
 
